@@ -1,0 +1,37 @@
+<mat-accordion *ngIf="posts.length > 0">
+  <mat-expansion-panel *ngFor="let post of posts; let postIndex = index">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{ post.title }}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="post-body">
+      <div class="post-image">
+        <img [src]="post.imagePath" [alt]="post.title" />
+      </div>
+      <p>{{ post.description }}</p>
+
+      <mat-action-row *ngIf="isUserAuthValid && userId === post.creator">
+        <a mat-button color="primary" (click)="DeletePost(post.id, postIndex)">
+          Delete
+        </a>
+        <a mat-button color="accent" (click)="EditPost(post.id)">Edit</a>
+      </mat-action-row>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<div class="paginator" *ngIf="posts.length > 0">
+  <mat-paginator
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    [length]="totalPost"
+    (page)="onPageChange($event)"
+  ></mat-paginator>
+</div>
+<div
+  class="mat-body-2 site-text-center loader"
+  *ngIf="isLoader && posts.length > 0"
+>
+  <mat-spinner></mat-spinner>
+</div>
+<div class="mat-body-2 site-text-center" *ngIf="posts.length == 0">
+  No data to display!
+</div>

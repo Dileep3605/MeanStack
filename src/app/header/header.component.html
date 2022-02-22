@@ -1,0 +1,45 @@
+<div class="site-header">
+  <mat-toolbar color="primary" class="site-box-shadow site-header">
+    <mat-toolbar-row>
+      <span routerLink="/" class="cursor-pointer site-logo">Article</span>
+      <span class="toolbar-spacer"></span>
+      <ul>
+        <li *ngIf="isUserAuthenticated">
+          <button
+            mat-button
+            routerLink="/create"
+            routerLinkActive="activeRouter"
+          >
+            Create Post
+          </button>
+        </li>
+        <li *ngIf="!isUserAuthenticated">
+          <button
+            mat-button
+            routerLink="/login"
+            routerLinkActive="activeRouter"
+          >
+            Login
+          </button>
+        </li>
+        <li *ngIf="!isUserAuthenticated">
+          <button
+            mat-button
+            routerLink="/signup"
+            routerLinkActive="activeRouter"
+          >
+            Sign Up
+          </button>
+        </li>
+        <li *ngIf="isUserAuthenticated">
+          <button
+            mat-button
+            (click)="Logout()"
+          >
+            Log Out
+          </button>
+        </li>
+      </ul>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

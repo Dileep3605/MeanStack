@@ -1,0 +1,51 @@
+<div class="sign-up">
+  <mat-card>
+    <form [formGroup]="signUpForm" (ngSubmit)="SignUp()">
+      <mat-form-field class="site-w-100">
+        <input
+          type="text"
+          matInput
+          formControlName="name"
+          placeholder="Enter name"
+        />
+      </mat-form-field>
+      <mat-form-field class="site-w-100">
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Enter email"
+        />
+      </mat-form-field>
+      <mat-form-field class="site-w-100">
+        <input
+          type="text"
+          matInput
+          formControlName="phone"
+          placeholder="Enter phone number"
+        />
+      </mat-form-field>
+      <mat-form-field class="site-w-100">
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          placeholder="Enter password"
+        />
+      </mat-form-field>
+      <mat-form-field class="site-w-100">
+        <input
+          type="password"
+          matInput
+          formControlName="confirmPassword"
+          placeholder="Enter confirm password"
+        />
+      </mat-form-field>
+      <div class="site-mt-2">
+        <button mat-raised-button color="accent" type="submit">
+          Sign Up
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

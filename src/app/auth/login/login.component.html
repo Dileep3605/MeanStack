@@ -1,0 +1,23 @@
+<div class="login">
+  <mat-card>
+    <form [formGroup]="loginForm" (ngSubmit)="Login()">
+      <mat-form-field class="site-w-100">
+        <input type="email" matInput formControlName="email" />
+        <mat-error *ngIf="loginForm.get('email').invalid"
+          >Please enter valid email</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field class="site-w-100">
+        <input type="password" matInput formControlName="password" />
+        <mat-error *ngIf="loginForm.get('password').invalid"
+          >Please enter valid password</mat-error
+        >
+      </mat-form-field>
+      <div class="site-mt-2">
+        <button mat-raised-button color="accent" type="submit">
+          Login
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
